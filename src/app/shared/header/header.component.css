@@ -1,0 +1,24 @@
+.header-container {
+    position: relative;
+    text-align: center;
+}
+
+.img-header {
+    max-width: 100%;
+    filter: brightness(0.5);
+}
+
+.title-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6em;
+    background: linear-gradient(to bottom right, #68FF33, #32CDFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 0 #32CDFF, 0 4px 0 #68FF33, 0 6px 0 #FFD700;
+    box-shadow: 0 0 10px #000000;
+  }
+  
+  
