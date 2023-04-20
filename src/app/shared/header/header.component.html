@@ -1,8 +1,11 @@
-<header>
-  <div class="header-container">
-    <img class="img-header" src="../../../assets/Imgs/header.jpeg" alt="Rick and Morty">
-    <a routerLink="/" class="d-flex align-items-center text-decoration-none">
-      <h1 class="text-center title-header">Rick and Morty</h1>
+<header class="header">
+  <img src="../../../assets/Imgs/header.jpeg" alt="Rick and Morty" class="header__image">
+  <div class="header__content">
+    <a routerLink="/" class="d-flex align-items-center text-decoration-none w-100">
+      <h1 class="text-center header__title">Rick and Morty</h1>
     </a>
-  </div>  
+    <div class="header__search-container">
+      <app-form></app-form>
+    </div>
+  </div>
 </header>
