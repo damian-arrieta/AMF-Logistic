@@ -1,1 +1,20 @@
+@font-face {
+    font-family: Getschwifty;
+    src: url('./assets/Font/get_schwifty.ttf');
+    font-weight: 400;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, #225312, #14475a);
+}
+
+h1 {
+    line-height: normal;
+    font-family: 'Getschwifty', sans-serif;
+  }

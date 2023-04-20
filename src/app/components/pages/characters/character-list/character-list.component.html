@@ -1,1 +1,30 @@
-<p>character-list works!</p>
+<div class="container m-3 character-list-bg">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" *ngFor="let character of characters">
+        <div class="card m-2" [ngClass]="{'bg-white': character.status === 'Alive', 'bg-dark': character.status === 'Dead', 'card-unknown': character.status === 'unknown'}">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <a [routerLink]="['/character-detail', character.id]">
+                <img [src]="character.image" [alt]="character.name" class="card-img-top img-fluid">
+              </a>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body text-center">
+                <div class="card-title">
+                  <a class="text-decoration-none" [routerLink]="['/character-detail', character.id]">
+                    <h2>{{character.name}}</h2>
+                  </a>
+                  <h4 class="text-muted">{{character.gender}}</h4>
+                  <small class="text-muted">{{character.status}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 mt-5" *ngIf="characters.length <= 0">
+        <p>No Results..</p>
+      </div>
+    </div>
+  </div>
+  
