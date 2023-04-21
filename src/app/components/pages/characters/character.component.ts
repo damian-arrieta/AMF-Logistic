@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 import { Character } from "@app/shared/interfaces/character.interface";
+import { FormatGenderService } from "@app/shared/services/format-gender.service";
 import { FormatStatusService } from "@app/shared/services/format-status.service";
 
 @Component({
@@ -16,19 +17,20 @@ import { FormatStatusService } from "@app/shared/services/format-status.service"
                 <div class="card-body text-center">
                 <div class="card-title">
                     <a class="text-decoration-none" [routerLink]="['/character-detail', character.id]">
-                    <h2>{{character.name}}</h2>
+                    <h2 class="character__name">{{character.name}}</h2>
                     </a>
-                    <h4 class="text-muted">{{character.gender}}</h4>
+                    <h6 class="character__gender">{{ gender.getGenderSpanish(character.gender) }}</h6>
                     <small class="text-muted">{{ status.getStatusSpanish(character.status) }}</small>
                 </div>
             </div>
         </div>
     </div>`,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    styleUrls: ['./character.component.css']
 })
 
 export class CharacterComponent{
     @Input() character!: Character;
 
-    constructor(public status: FormatStatusService) {}
+    constructor(public status: FormatStatusService, public gender: FormatGenderService) {}
 }

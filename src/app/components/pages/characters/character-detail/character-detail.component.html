@@ -1,15 +1,25 @@
-<div class="row m-5" *ngIf="character$ | async as character">
-    <div class="col-4">
-        <img [src]="character.image" [alt]="character.name" class="card-img-top img-fluid">
-    </div>
-    <div class="col-8">
-        <h2>{{character.name}}</h2>
-        <p>Género: {{character.gender}}</p>
-        <p>Fecha de creación: {{character.created | date}}</p>
-        <p>Locación: {{character.location.name}}</p>
-        <p>Origen: {{character.origin.name}}</p>
-        <p>Tipo: {{character.species}}</p>
-        <small class="text-muted">Estado: {{ status.getStatusSpanish(character.status) }}</small>
+<div class="m-3" *ngIf="character$ | async as character" [ngClass]="{'bg-white': character.status === 'Alive', 'bg-dark': character.status === 'Dead'}">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 mb-3 mb-md-0 p-3">
+                <img [src]="character.image" [alt]="character.name" class="card-img-top img-fluid border border-dark">
+            </div>
+            <div class="col-md-8 p-3 character__texts">
+                <h2 class="character__name">{{character.name}}</h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>Género: {{ gender.getGenderSpanish(character.gender) }}</p>
+                        <p>Fecha de creación: {{character.created | date}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Locación: {{character.location.name}}</p>
+                        <p>Origen: {{character.origin.name}}</p>
+                    </div>
+                </div>
+                <p>Tipo: {{character.species}}</p>
+                <small class="text-muted">Estado: {{ status.getStatusSpanish(character.status) }}</small>
+            </div>
+        </div>
     </div>
 </div>
-<button (click)="goBack()" class="btn btn-primary btn-large">Volver atras</button>
+<button (click)="goBack()" class="m-3 btn btn-large btn__character text-light mt-3">Volver atras</button>

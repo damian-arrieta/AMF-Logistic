@@ -5,6 +5,7 @@ import { Character } from '@app/shared/interfaces/character.interface';
 import { CharacterService } from '@app/shared/services/character.service';
 import { FormatStatusService } from '@app/shared/services/format-status.service';
 import { Observable, take } from 'rxjs';
+import { FormatGenderService } from '@app/shared/services/format-gender.service';
 
 @Component({
   selector: 'app-character-detail',
@@ -14,7 +15,7 @@ import { Observable, take } from 'rxjs';
 export class CharacterDetailComponent implements OnInit {
   character$: Observable<Character> = new Observable<Character>();
 
-  constructor(private route: ActivatedRoute, private characterSvc: CharacterService, private location: Location, public status: FormatStatusService) { }
+  constructor(private route: ActivatedRoute, private characterSvc: CharacterService, private location: Location, public status: FormatStatusService, public gender: FormatGenderService) { }
 
   ngOnInit(): void {
     this.route.params.pipe(

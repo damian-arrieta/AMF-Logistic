@@ -5,6 +5,7 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
 import { CharacterListComponent } from './character-list/character-list.component';
 import { CharacterComponent } from './character.component';
 import { FormatStatusService } from '@app/shared/services/format-status.service';
+import { FormatGenderService } from '@app/shared/services/format-gender.service';
 
 const components = [CharacterDetailComponent, CharacterListComponent, CharacterComponent];
 
@@ -16,7 +17,8 @@ const components = [CharacterDetailComponent, CharacterListComponent, CharacterC
   ],
   exports: [ ...components ],
   providers: [
-    FormatStatusService
+    FormatStatusService,
+    FormatGenderService
   ]
 })
 export class CharactersModule { }
