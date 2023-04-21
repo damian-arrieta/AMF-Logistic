@@ -1,27 +1,28 @@
-# AMFLogistic
+# Test segunda etapa AMF Logistic
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
+## Descripción:
 
-## Development server
+Este proyecto tiene como objetivo demostrar mis habilidades de análisis y conocimientos técnicos como postulante para un puesto de frontend. Para ello, se consume la API de libre acceso de Rick and Morty https://rickandmortyapi.com y se implementan los siguientes requerimientos:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Homepage: Se muestra una lista paginada de los personajes de la serie Rick and Morty. Cada personaje se visualiza en una tarjeta que muestra su imagen, nombre, género y estado vital (vivo/muerto). Si un personaje está vivo, la tarjeta será de color blanco; si está muerto, será de color negro.
+* Detalles del personaje: Al hacer clic en la tarjeta de un personaje, se muestra un modal con información adicional del personaje, incluyendo su ubicación, especie y origen.
 
-## Code scaffolding
+## Tecnologías utilizadas:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Angular: 14.2.0
+* Bootstrap: 5.2.3
+* Node: 18.2.1
 
-## Build
+## Requisitos:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para ejecutar el proyecto, se necesitan los siguientes requisitos:
 
-## Running unit tests
+* Node.js instalado
+* Angular CLI instalado
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Instrucciones de instalación:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* 1- Clonar el repositorio "https://github.com/damian-arrieta/AMF-Logistic.git".
+* 2- Ejecutar el comando npm install para instalar las dependencias.
+* 3- Ejecutar el comando ng serve para iniciar el servidor de desarrollo.
+* 4- Abrir el navegador y acceder a la dirección http://localhost:4200/.
