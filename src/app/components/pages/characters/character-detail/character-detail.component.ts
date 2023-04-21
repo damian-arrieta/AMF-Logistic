@@ -27,4 +27,15 @@ export class CharacterDetailComponent implements OnInit {
   goBack(): void{
     this.location.back();
   }
+
+  getStatusSpanish(status: string): string {
+    switch (status) {
+      case 'Alive':
+        return 'Vive';
+      case 'Dead':
+        return 'Muerto';
+      default:
+        return 'Desconocido';
+    }
+  }  
 }
