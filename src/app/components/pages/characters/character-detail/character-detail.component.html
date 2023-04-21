@@ -1,1 +1,21 @@
-<p>character-detail works!</p>
+<div class="row" *ngIf="character$ | async as character">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="card m-2" [ngClass]="{'bg-white': character.status === 'Alive', 'bg-dark': character.status === 'Dead', 'card-unknown': character.status === 'unknown'}">
+        <div class="row no-gutters">
+        <div class="col-md-4">
+            <img [src]="character.image" [alt]="character.name" class="card-img-top img-fluid">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body text-center">
+            <div class="card-title">
+                <h2>{{character.name}}</h2>
+                <h4 class="text-muted">{{character.gender}}</h4>
+                <small class="text-muted">{{character.status}}</small>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<button (click)="goBack" class="btn btn-primary btn-large">Volver atras</button>
