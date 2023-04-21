@@ -14,18 +14,11 @@ type RequestInfo = {
 })
 export class CharacterListComponent implements OnInit {
   characters: Character[] = [];
-
-  info: RequestInfo = {
-    next: null,
-  };
-
-  private pageNum = 1;
-
-  private query;
-
-  constructor(private characterSvc: CharacterService, private route: ActivatedRoute, private router: Router) {
-    this.query = '';
-  }  
+  info: RequestInfo = { next: null };
+  pageNum = 1;
+  query = '';
+  
+  constructor(private characterSvc: CharacterService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.getCharactersByQuery();
@@ -33,36 +26,35 @@ export class CharacterListComponent implements OnInit {
   }
 
   private onUrlChanged(): void {
-    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(
-      () => {
-        console.log('Busando desde la URL')
-        this.characters = [];
-        this.pageNum = 1;
-        this.getCharactersByQuery();
-      }
-    )
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
+      this.characters = [];
+      this.pageNum = 1;
+      this.getCharactersByQuery();
+    });
   }
 
   private getCharactersByQuery(): void {
     this.route.queryParams.pipe(take(1)).subscribe(params => {
-      console.log('Buscando desde el query');
       this.query = params['q'];
       this.pageNum = 1;
       this.getDataFromService();
     });
   }
 
-  private getDataFromService(): void{
-      this.characterSvc.searchCharacters(this.query, this.pageNum).pipe(
-        take(1)
-      ).subscribe((res: any) => {
-        if(res?.results?.length) {
-          const { info, results } = res;
-          this.characters = [ ...this.characters, ...results];
-          this.info = info;
-        } else {
-          this.characters = [];
-        }
-      });
-  }  
+  private getDataFromService(): void {
+    this.characterSvc.searchCharacters(this.query, this.pageNum).pipe(take(1)).subscribe((res: any) => {
+      if (res?.results?.length) {
+        const { info, results } = res;
+        this.characters = [...this.characters, ...results];
+        this.info = info;
+      } else {
+        this.characters = [];
+      }
+    });
+  }
+
+  onPageChange(event: number): void {
+    this.pageNum = event;
+    this.getDataFromService();
+  }
 }

@@ -6,6 +6,7 @@ import { CharacterListComponent } from './character-list/character-list.componen
 import { CharacterComponent } from './character.component';
 import { FormatStatusService } from '@app/shared/services/format-status.service';
 import { FormatGenderService } from '@app/shared/services/format-gender.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const components = [CharacterDetailComponent, CharacterListComponent, CharacterComponent];
 
@@ -13,7 +14,8 @@ const components = [CharacterDetailComponent, CharacterListComponent, CharacterC
   declarations: [ ...components ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    NgxPaginationModule
   ],
   exports: [ ...components ],
   providers: [

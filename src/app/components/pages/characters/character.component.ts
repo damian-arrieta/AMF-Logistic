@@ -8,7 +8,7 @@ import { FormatStatusService } from "@app/shared/services/format-status.service"
     template: `
     <div class="card m-2" [ngClass]="{'bg-white': character.status === 'Alive', 'bg-dark': character.status === 'Dead'}">
         <div class="row no-gutters">
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
                 <a [routerLink]="['/character-detail', character.id]">
                 <img [src]="character.image" [alt]="character.name" class="card-img-top img-fluid">
                 </a>
@@ -17,7 +17,7 @@ import { FormatStatusService } from "@app/shared/services/format-status.service"
                 <div class="card-body text-center">
                 <div class="card-title">
                     <a class="text-decoration-none" [routerLink]="['/character-detail', character.id]">
-                    <h2 class="character__name">{{character.name}}</h2>
+                    <h2 class="character__name">{{character.name | slice: 0:15}}</h2>
                     </a>
                     <h6 class="character__gender">{{ gender.getGenderSpanish(character.gender) }}</h6>
                     <small class="text-muted">{{ status.getStatusSpanish(character.status) }}</small>
