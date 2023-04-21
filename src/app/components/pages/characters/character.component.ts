@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 import { Character } from "@app/shared/interfaces/character.interface";
+import { FormatStatusService } from "@app/shared/services/format-status.service";
 
 @Component({
     selector:'app-character',
@@ -18,7 +19,7 @@ import { Character } from "@app/shared/interfaces/character.interface";
                     <h2>{{character.name}}</h2>
                     </a>
                     <h4 class="text-muted">{{character.gender}}</h4>
-                    <small class="text-muted">{{character.status}}</small>
+                    <small class="text-muted">{{ status.getStatusSpanish(character.status) }}</small>
                 </div>
             </div>
         </div>
@@ -28,4 +29,6 @@ import { Character } from "@app/shared/interfaces/character.interface";
 
 export class CharacterComponent{
     @Input() character!: Character;
+
+    constructor(public status: FormatStatusService) {}
 }

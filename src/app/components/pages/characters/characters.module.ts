@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { CharacterComponent } from './character.component';
+import { FormatStatusService } from '@app/shared/services/format-status.service';
 
 const components = [CharacterDetailComponent, CharacterListComponent, CharacterComponent];
 
@@ -13,6 +14,9 @@ const components = [CharacterDetailComponent, CharacterListComponent, CharacterC
     CommonModule,
     RouterModule
   ],
-  exports: [ ...components ]
+  exports: [ ...components ],
+  providers: [
+    FormatStatusService
+  ]
 })
 export class CharactersModule { }

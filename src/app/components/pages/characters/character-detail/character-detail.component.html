@@ -9,7 +9,7 @@
         <p>Locación: {{character.location.name}}</p>
         <p>Origen: {{character.origin.name}}</p>
         <p>Tipo: {{character.species}}</p>
-        <small class="text-muted">Estado: {{getStatusSpanish(character.status)}}</small>
+        <small class="text-muted">Estado: {{ status.getStatusSpanish(character.status) }}</small>
     </div>
 </div>
-<button (click)="goBack" class="btn btn-primary btn-large">Volver atras</button>
+<button (click)="goBack()" class="btn btn-primary btn-large">Volver atras</button>
