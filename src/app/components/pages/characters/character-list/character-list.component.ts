@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CharacterService } from '@app/shared/services/character.service';
 import { Character } from '@app/shared/interfaces/character.interface';
 import { take, filter } from 'rxjs';
-import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 type RequestInfo = {
   next: string | null;
@@ -10,8 +10,7 @@ type RequestInfo = {
 
 @Component({
   selector: 'app-character-list',
-  templateUrl: './character-list.component.html',
-  styleUrls: ['./character-list.component.css']
+  templateUrl: './character-list.component.html'
 })
 export class CharacterListComponent implements OnInit {
   characters: Character[] = [];
